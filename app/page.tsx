@@ -3,13 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '@/components/nav';
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Input } from "@/components/ui/input";
 import { Search, User } from "lucide-react";
 
 export default function Accueil() {
   interface Stream {
-    id: number;
+    id: string;
     channel_logo: string;
     display_name: string;
     viewers: number;
@@ -18,6 +17,8 @@ export default function Accueil() {
   
   const [streams, setStreams] = useState<Stream[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [playerName, setPlayerName] = useState('');
+  const [isPlayerLoading, setIsPlayerLoading] = useState(false);
 
   useEffect(() => {
     fetchStreams();
@@ -39,6 +40,27 @@ export default function Accueil() {
     }
   }
 
+  async function handleSearch(e: { preventDefault: () => void; }) {
+    e.preventDefault();
+    if (playerName.trim() === '') return;
+
+    setIsPlayerLoading(true);
+    try {
+      const response = await fetch(`/api/joueur?pseudo=${encodeURIComponent(playerName)}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data);
+      setIsPlayerLoading(false);
+
+      window.location.href = `/joueur/${encodeURIComponent(playerName)}`;
+    } catch (error) {
+      console.error('Error fetching player data:', error);
+      setIsPlayerLoading(false);
+    }
+  }
+
   return (
     <>
       <Nav />
@@ -47,18 +69,21 @@ export default function Accueil() {
           Faceit-STATS <span className='text-4xl'>/LIVE</span>
         </h1>
         <div className="flex justify-center mx-auto w-full max-w-lg mt-10 mb-2">
-          <div className="flex w-full border border-gray-300 rounded-lg overflow-hidden shadow-md">
+          <form onSubmit={handleSearch} className="flex w-full border border-gray-300 rounded-lg overflow-hidden shadow-md">
             <Input
               type="text"
               className='flex-grow p-4 border-none focus:outline-none'
               placeholder="Rechercher un joueur..."
+              value={playerName}
+              onChange={(e) => setPlayerName(e.target.value)}
             />
             <Button
               type="submit"
-              className='bg-white text-gray-500 px-4 py-2'>
+              className='bg-white text-gray-500 px-4 py-2'
+            >
               <Search className='h-6 w-6' />
             </Button>
-          </div>
+          </form>
         </div>
         <p className='flex justify-center text-center text-sm'>Vous pouvez aussi copier et coller le lien de la salle de match<br/>pour analyser les stats de la partie</p>
         <div className='pb-10'>
@@ -66,7 +91,7 @@ export default function Accueil() {
           {isLoading ? (
             <div className="flex justify-center mt-4 space-x-4">
               {Array(3).fill(0).map((_, index) => (
-                <Skeleton key={index} className="bg-black w-[400px] h-[300px] rounded-lg" />
+                <div key={index} className="bg-black w-[400px] h-[300px] rounded-lg"></div>
               ))}
             </div>
           ) : (
@@ -81,7 +106,7 @@ export default function Accueil() {
                     </p>
                   </div>
                   <div className="px-6 py-4">
-                    <a href={stream.channel_url} target="_blank" className="bg-black text-white font-bold py-2 px-4 rounded-full">
+                    <a href={stream.channel_url} target="_blank" rel="noopener noreferrer" className="bg-black text-white font-bold py-2 px-4 rounded-full">
                       Voir le stream
                     </a>
                   </div>
