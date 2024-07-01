@@ -54,7 +54,7 @@ export default function Accueil() {
       console.log(data);
       setIsPlayerLoading(false);
 
-      window.location.href = `/joueur/${encodeURIComponent(playerName)}`;
+      window.location.href = `/joueur?pseudo=${encodeURIComponent(playerName)}`;
     } catch (error) {
       console.error('Error fetching player data:', error);
       setIsPlayerLoading(false);
