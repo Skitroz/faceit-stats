@@ -16,7 +16,7 @@ const Plus = () => (
     color="whiteLowEmphasis"
     height="24"
     width="24"
-    class="sc-klVQfs fLZPES"
+    className="sc-klVQfs fLZPES"
   >
     <g filter="url(#filter0_i_6_79__Cffb1zrt)">
       <path
@@ -273,7 +273,7 @@ const Premium = () => (
     color="primary"
     height="24"
     width="24"
-    class="sc-klVQfs hUzTIf"
+    className="sc-klVQfs hUzTIf"
   >
     <g filter="url(#a__hrzMuihG)">
       <path
