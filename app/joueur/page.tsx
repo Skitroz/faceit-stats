@@ -589,7 +589,7 @@ export default function Pseudo() {
     };
   }
 
-  function getSkillLevelImage(skillLevel) {
+  function getSkillLevelImage(skillLevel: any) {
     switch (skillLevel) {
       case 1:
         return "https://cdn-frontend.faceit-cdn.net/web/static/media/assets_images_skill-icons_skill_level_1_svg.svg";
