@@ -565,7 +565,7 @@ export default function Pseudo() {
     }
   }
 
-  function getMembershipSVG(memberships) {
+  function getMembershipSVG(memberships: any[]) {
     if (!memberships) return null;
     return memberships.map((membership, index) => {
       if (membership === "premium") return <Premium key={index} />;
