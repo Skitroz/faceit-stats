@@ -13,7 +13,8 @@ Chart.register(ArcElement, Tooltip, Legend);
 const defaultCoverImage =
   "https://cdn-frontend.faceit-cdn.net/web/static/media/assets_images_profile_header.jpg";
 
-const cardImages = {
+
+const mapImages: Record<MapName, string> = {
   de_dust2: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/adf58ac6-b0f3-40e9-87ef-0af23fc60918_1695819116078.jpeg',
   de_inferno: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/a2cb95be-1a3f-49f3-a5fa-a02503d02086_1695819214782.jpeg',
   de_vertigo: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/57652f05-ce5a-4c89-8211-d9eb79a399f1_1695819175416.jpeg',
@@ -23,6 +24,8 @@ const cardImages = {
   de_anubis: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/847a46ed-fbcc-4347-a64a-bc2d6a24be89_1695819226252.jpeg',
   de_overpass: 'https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_overpass-110x55.jpg'
 };
+
+type MapName = 'de_dust2' | 'de_inferno' | 'de_vertigo' | 'de_ancient' | 'de_mirage' | 'de_nuke' | 'de_anubis' | 'de_overpass';
 
 interface PlayerDetail {
   mapStats: {
@@ -866,7 +869,7 @@ export default function Pseudo() {
                         {topMaps.map(([map, stats]) => (
                           <tr key={map} className="border-b border-white">
                             <td className="px-4 py-2 text-white flex items-center">
-                              <img src={cardImages[map]} alt={map} className=" rounded mr-2" />
+                              <img src={mapImages[map]} alt={map} className="rounded mr-2" />
                               {map}
                             </td>
                             <td className="px-4 py-2 text-white">{stats.matches}</td>
@@ -900,7 +903,7 @@ export default function Pseudo() {
                             {Object.entries(dataMatchs.mapOccurrences).map(([map, count]) => (
                               <li key={map} className="text-white flex flex-col items-center gap-2">
                                 <span>{count}</span>
-                                <img src={cardImages[map]} alt={map} className="rounded-lg" />
+                                <img src={mapImages[map]} alt={map} className="rounded-lg" />
                               </li>
                             ))}
                           </ul>
