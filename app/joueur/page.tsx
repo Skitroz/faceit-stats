@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton"
 import { useSearchParams } from "next/navigation";
 import Nav from "@/components/nav";
@@ -42,9 +42,13 @@ interface PlayerDetail {
 }
 
 interface MapStats {
-  [map: string]: {
-    winRate: number;
-  };
+  matches: number;
+  wins: number;
+  winRate: number;
+}
+
+interface MapStatsRecord {
+  [map: string]: MapStats;
 }
 
 const Plus = () => (
@@ -578,7 +582,9 @@ const Esea = () => (
 export default function Pseudo() {
   const [dataJoueur, setDataJoueur] = useState<DataJoueur | null>(null);
   const [dataJoueurDetail, setDataJoueurDetail] = useState<PlayerDetail | null>(null);
-  const [dataMatchs, setDataMatchs] = useState<{ wins: number } | null>(null);
+  const [dataMatchs, setDataMatchs] = useState<{
+    mapOccurrences(mapOccurrences: any): unknown; wins: number 
+} | null>(null);
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
   const [mapStats, setMapStats] = useState<MapStats | null>(null);
@@ -622,7 +628,13 @@ export default function Pseudo() {
       const data: PlayerDetail = await response.json();
       const sortedMaps = Object.entries(data.mapStats).sort(([, a], [, b]) => b.winRate - a.winRate);
       const topMaps = sortedMaps.slice(0, 10);
-      setMapStats(data.mapStats);
+      const updatedMapStats: MapStats = {
+        matches: 0,
+        wins: 0,
+        winRate: 0,
+        ...data.mapStats
+      };
+      setMapStats(updatedMapStats);
       setTopMaps(topMaps);
       console.log("Top Maps", topMaps);
       setDataJoueurDetail(data);
@@ -902,7 +914,7 @@ export default function Pseudo() {
                           <ul className="mt-4 flex mt-[-20px]">
                             {Object.entries(dataMatchs.mapOccurrences).map(([map, count]) => (
                               <li key={map} className="text-white flex flex-col items-center gap-2">
-                                <span>{count}</span>
+                                <span>{count as ReactNode}</span>
                                 <img src={mapImages[map as MapName]} alt={map} className="rounded-lg" />
                               </li>
                             ))}
