@@ -24,6 +24,14 @@ const cardImages = {
   de_overpass: 'https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_overpass-110x55.jpg'
 };
 
+interface PlayerDetail {
+  mapStats: {
+    [map: string]: {
+      winRate: number;
+    };
+  };
+}
+
 const Plus = () => (
   <svg
     viewBox="0 0 40 40"
@@ -596,7 +604,7 @@ export default function Pseudo() {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      const data = await response.json();
+      const data: PlayerDetail = await response.json();
       const sortedMaps = Object.entries(data.mapStats).sort(([, a], [, b]) => b.winRate - a.winRate);
       const topMaps = sortedMaps.slice(0, 10);
       setMapStats(data.mapStats);
