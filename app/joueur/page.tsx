@@ -30,6 +30,11 @@ interface PlayerDetail {
       winRate: number;
     };
   };
+  stats?: {
+    lifetime?: {
+      k6?: number;
+      m1?: number;
+    };
 }
 
 interface MapStats {
