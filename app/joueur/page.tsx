@@ -872,8 +872,8 @@ export default function Pseudo() {
                               <img src={mapImages[map as MapName]} alt={map} className="rounded mr-2" />
                               {map}
                             </td>
-                            <td className="px-4 py-2 text-white">{stats.matches}</td>
-                            <td className="px-4 py-2 text-white">{stats.wins} %</td>
+                            <td className="px-4 py-2 text-white">{stats?.matches}</td>
+                            <td className="px-4 py-2 text-white">{stats?.wins} %</td>
                           </tr>
                         ))}
                       </tbody>
