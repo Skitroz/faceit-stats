@@ -567,7 +567,7 @@ const Esea = () => (
 );
 
 export default function Pseudo() {
-  const [dataJoueur, setDataJoueur] = useState(null);
+  const [dataJoueur, setDataJoueur] = useState<DataJoueur | null>(null);
   const [dataJoueurDetail, setDataJoueurDetail] = useState<PlayerDetail | null>(null);
   const [dataMatchs, setDataMatchs] = useState<{ wins: number } | null>(null);
   const searchParams = useSearchParams();
@@ -731,7 +731,7 @@ export default function Pseudo() {
     <>
       <Nav />
       <div className="flex justify-center bg-muted/75"></div>
-      {dataJoueur && dataJoueur.payload ? (
+      {dataJoueur && 'payload' in dataJoueur && dataJoueur.payload ? (
         <>
           <div
             className="relative flex justify-center items-center h-64 bg-cover bg-center"
