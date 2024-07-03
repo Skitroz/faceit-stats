@@ -688,6 +688,7 @@ export default function Pseudo() {
         };
       };
       memberships: string[];
+      country: string;
     };
   }
 
@@ -748,11 +749,13 @@ export default function Pseudo() {
                 width={110}
               />
               <div className="flex flex-col gap-2">
-                <img
-                  src={getCountryFlag(dataJoueur.payload.country)}
-                  alt={`Pays ${dataJoueur.payload.country}`}
-                  width={40}
-                />
+                {dataJoueur && dataJoueur.payload && dataJoueur.payload.country ? (
+                  <img
+                    src={getCountryFlag(dataJoueur.payload.country)}
+                    alt={`Pays ${dataJoueur.payload.country}`}
+                    width={40}
+                  />
+                ) : null}
                 <h2 className="text-4xl font-medium text-white flex items-center">
                   {dataJoueur.payload.nickname}{" "}
                   <span className="ml-2 flex items-center gap-1">
