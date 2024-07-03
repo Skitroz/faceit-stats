@@ -688,6 +688,7 @@ export default function Pseudo() {
       nickname: string;
       cover_image_url: string;
       games: {
+        csgo: any;
         cs2: {
           faceit_elo: number;
           skill_level?: number;
@@ -812,10 +813,10 @@ export default function Pseudo() {
                     </div>
                     <div>
                       <p className="text-white">
-                        {dataJoueurDetail?.stats.lifetime?.k6}% Win Rate
+                        {dataJoueurDetail?.stats?.lifetime?.k6 ?? 0}% Win Rate
                       </p>
                       <p className="text-white">
-                        {dataJoueurDetail?.stats.lifetime?.m1} matchs
+                        {dataJoueurDetail?.stats?.lifetime?.m1 ?? 0} matchs
                       </p>
                     </div>
                   </div>
