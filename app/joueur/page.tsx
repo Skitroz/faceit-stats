@@ -32,6 +32,12 @@ interface PlayerDetail {
   };
 }
 
+interface MapStats {
+  [map: string]: {
+    winRate: number;
+  };
+}
+
 const Plus = () => (
   <svg
     viewBox="0 0 40 40"
@@ -566,7 +572,7 @@ export default function Pseudo() {
   const [dataMatchs, setDataMatchs] = useState(null);
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
-  const [mapStats, setMapStats] = useState(null);
+  const [mapStats, setMapStats] = useState<MapStats | null>(null);
   const [topMaps, setTopMaps] = useState<[string, unknown][]>([]);
   console.log(search);
 
