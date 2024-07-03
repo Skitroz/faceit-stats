@@ -1,12 +1,28 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton"
 import { useSearchParams } from "next/navigation";
 import Nav from "@/components/nav";
 import User from "../../public/user.png";
+import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from "react-chartjs-2";
+
+Chart.register(ArcElement, Tooltip, Legend);
 
 const defaultCoverImage =
   "https://cdn-frontend.faceit-cdn.net/web/static/media/assets_images_profile_header.jpg";
+
+const cardImages = {
+  de_dust2: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/adf58ac6-b0f3-40e9-87ef-0af23fc60918_1695819116078.jpeg',
+  de_inferno: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/a2cb95be-1a3f-49f3-a5fa-a02503d02086_1695819214782.jpeg',
+  de_vertigo: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/57652f05-ce5a-4c89-8211-d9eb79a399f1_1695819175416.jpeg',
+  de_ancient: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/a7d193ca-9498-4546-bf7b-da33e3e429a5_1695819186093.jpeg',
+  de_mirage: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/796b5b23-41e4-4387-a4a9-0d28c1c57456_1695819136505.jpeg',
+  de_nuke: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/15ff938d-a70d-4d0b-9bf9-6be215cdb193_1695819151395.jpeg',
+  de_anubis: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/847a46ed-fbcc-4347-a64a-bc2d6a24be89_1695819226252.jpeg',
+  de_overpass: 'https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_overpass-110x55.jpg'
+};
 
 const Plus = () => (
   <svg
@@ -542,6 +558,8 @@ export default function Pseudo() {
   const [dataMatchs, setDataMatchs] = useState(null);
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
+  const [mapStats, setMapStats] = useState(null);
+  const [topMaps, setTopMaps] = useState<[string, unknown][]>([]);
   console.log(search);
 
   useEffect(() => {
@@ -579,6 +597,11 @@ export default function Pseudo() {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
+      const sortedMaps = Object.entries(data.mapStats).sort(([, a], [, b]) => b.winRate - a.winRate);
+      const topMaps = sortedMaps.slice(0, 10);
+      setMapStats(data.mapStats);
+      setTopMaps(topMaps);
+      console.log("Top Maps", topMaps);
       setDataJoueurDetail(data);
       console.log("ififeief", data);
     } catch (error) {
@@ -598,7 +621,7 @@ export default function Pseudo() {
       }
       const data = await response.json();
       setDataMatchs(data);
-      console.log("Matttchs",data);
+      console.log("Matttchs", data);
     } catch (error) {
       console.error(
         "Erreur lors de la récupération des données des matchs :",
@@ -606,6 +629,29 @@ export default function Pseudo() {
       );
     }
   }
+
+  const winRate = dataMatchs ? (dataMatchs.wins / 20) * 100 : 0;
+  const lossRate = 100 - winRate;
+
+  const data = {
+    datasets: [
+      {
+        data: [winRate, lossRate],
+        backgroundColor: ["#4CAF50", "#F44336"],
+        hoverBackgroundColor: ["#45A049", "#E53935"],
+      },
+    ],
+  };
+
+  const options = {
+    maintainAspectRatio: false,
+    cutout: '50%',
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
 
   function getMembershipSVG(memberships: any[]) {
     if (!memberships) return null;
@@ -676,11 +722,10 @@ export default function Pseudo() {
           <div
             className="relative flex justify-center items-center h-64 bg-cover bg-center"
             style={{
-              backgroundImage: `url(${
-                dataJoueur.payload.cover_image_url || defaultCoverImage
-              })`,
+              backgroundImage: `url(${dataJoueur.payload.cover_image_url || defaultCoverImage
+                })`,
             }}
-          >
+          >.
             <div className="flex items-center gap-4 bg-black/90 p-4 rounded">
               <img
                 src={dataJoueur.payload.avatar || User.src}
@@ -775,23 +820,72 @@ export default function Pseudo() {
                         {dataJoueur.payload.games.csgo?.faceit_elo || ""}
                       </p>
                     </div>
-                    <div>
-                      <p className="text-white">NaN% Win Rate</p>
-                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-black rounded-lg w-full">
+                  <h3 className="text-xl p-2 font-bold flex gap-2 text-white">
+                    <span className="border-l-2 pl-2">
+                      Statistiques des maps
+                    </span>
+                  </h3>
+                  <div className="mt-4">
+                    <table className="w-full border-collapse border-b border-white">
+                      <thead>
+                        <tr>
+                          <th className="border-b border-white px-4 py-2 text-white text-left">Map</th>
+                          <th className="border-b border-white px-4 py-2 text-white text-left">Nombre de matchs</th>
+                          <th className="border-b border-white px-4 py-2 text-white text-left">Winrate</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {topMaps.map(([map, stats]) => (
+                          <tr key={map} className="border-b border-white">
+                            <td className="px-4 py-2 text-white flex items-center">
+                              <img src={cardImages[map]} alt={map} className=" rounded mr-2" />
+                              {map}
+                            </td>
+                            <td className="px-4 py-2 text-white">{stats.matches}</td>
+                            <td className="px-4 py-2 text-white">{stats.wins} %</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
               <div className="mt-4">
                 <div className="bg-black text-white p-4 rounded-lg">
-                  <h3 className="text-xl font-bold flex gap-2 text-white">
-                    <span className="border-l-2 pl-2">
-                      Historique des 20 derniers matchs
-                    </span>
+                  <h3 className="text-xl font-bold flex gap-2">
+                    <span className="border-l-2 pl-2">Historique des matchs</span>
                   </h3>
-                  <div>
-                      <p className="text-xs">{dataMatchs?.wins} victoires</p>
-                      <p className="text-xs">{dataMatchs?.losses} défaites</p>
-                    </div>
+                  <div className="flex items-center justify-center mt-4">
+                    {dataMatchs ? (
+                      <>
+                        <div className="flex mt-4 gap-10">
+                          <div className="flex items-center gap-4">
+                            <div className="w-10 h-10">
+                              <Doughnut data={data} options={options} />
+                            </div>
+                            <div>
+                              <p className="text-white text-2xl">{winRate.toFixed(0)}% WR</p>
+                              <p className="text-white text-sm">20 dernières parties</p>
+                            </div>
+                          </div>
+                          <ul className="mt-4 flex mt-[-20px]">
+                            {Object.entries(dataMatchs.mapOccurrences).map(([map, count]) => (
+                              <li key={map} className="text-white flex flex-col items-center gap-2">
+                                <span>{count}</span>
+                                <img src={cardImages[map]} alt={map} className="rounded-lg" />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    ) : (
+                      <Skeleton className="rounded-lg w-[700px] h-[80px]" />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

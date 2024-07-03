@@ -23,6 +23,7 @@ export default async function handler(req, res) {
             let userTeam = null;
             let wins = 0;
             let losses = 0;
+            const mapOccurrences = {};
 
             for (const matchId of matchIds) {
                 const matchResponse = await fetch(
@@ -34,7 +35,6 @@ export default async function handler(req, res) {
                 const matchData = await matchResponse.json();
 
                 if (matchData && matchData.payload && matchData.payload.teams) {
-                    const teams = Object.values(matchData.payload.teams);
                     for (const [factionKey, team] of Object.entries(matchData.payload.teams)) {
                         if (team.roster.some(player => player.nickname === req.query.pseudo)) {
                             userTeam = factionKey;
@@ -52,13 +52,42 @@ export default async function handler(req, res) {
                 }
             }
 
-            res.status(200).json({ userData, userStats, userTeam, wins, losses });
-            res.status(200).json({ userData, userStats, userTeam, wins, losses });
-            res.status(200).json({ userData, userStats, userTeam, wins, losses });
+            for (const matchData of userStats) {
+                const matchId = matchData.matchId;
+
+                const matchResponse = await fetch(
+                    `https://www.faceit.com/api/stats/v1/stats/matches/${matchId}`
+                );
+                if (!matchResponse.ok) {
+                    throw new Error(`Erreur lors de la récupération des données pour le match ${matchId}`);
+                }
+                const matchDetails = await matchResponse.json();
+
+                if (matchDetails.length === 1) {
+                    const match = matchDetails[0];
+                    const map = match.i1;
+                    // console.log(map);
+
+                    if (map) {
+                        if (mapOccurrences[map]) {
+                            mapOccurrences[map]++;
+                        } else {
+                            mapOccurrences[map] = 1;
+                        }
+                    } else {
+                        console.log(`Le champ i1 n'est pas défini pour le match ${matchId}`);
+                    }
+                } else {
+                    console.log(`Les données pour le match ${matchId} sont vides ou incorrectes`);
+                }
+                // console.log(mapOccurrences)
+            }
+
+            res.status(200).json({ userData, userStats, userTeam, wins, losses, mapOccurrences });
 
         } catch (error) {
             console.error("Error:", error.message);
-            res.status(500).json({ error: "Une erreur est survenue"});
+            res.status(500).json({ error: "Une erreur est survenue" });
         }
     } else {
         res.setHeader("Allow", ["GET"]);
