@@ -568,7 +568,7 @@ const Esea = () => (
 
 export default function Pseudo() {
   const [dataJoueur, setDataJoueur] = useState(null);
-  const [dataJoueurDetail, setDataJoueurDetail] = useState(null);
+  const [dataJoueurDetail, setDataJoueurDetail] = useState<PlayerDetail | null>(null);
   const [dataMatchs, setDataMatchs] = useState(null);
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
