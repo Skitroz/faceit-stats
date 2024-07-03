@@ -25,17 +25,17 @@ const Plus = () => (
       ></path>
     </g>
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M13.258 3.724l-9.534 9.534v13.484l9.534 9.534h13.484l9.534-9.534V13.258l-9.534-9.534H13.258zM12.488 0c-.495 0-.968.196-1.318.545L.545 11.17c-.349.35-.545.823-.545 1.317v15.026c0 .494.196.967.545 1.317L11.17 39.455c.35.349.823.545 1.317.545h15.026c.494 0 .967-.196 1.317-.545L39.455 28.83c.349-.35.545-.823.545-1.317V12.487c0-.494-.196-.967-.545-1.317L28.83.545A1.862 1.862 0 0027.513 0H12.487z"
       fill="url(#paint1_linear_6_79__Cffb1zrt)"
     ></path>
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M13.258 3.724l-9.534 9.534v13.484l9.534 9.534h13.484l9.534-9.534V13.258l-9.534-9.534H13.258zM12.488 0c-.495 0-.968.196-1.318.545L.545 11.17c-.349.35-.545.823-.545 1.317v15.026c0 .494.196.967.545 1.317L11.17 39.455c.35.349.823.545 1.317.545h15.026c.494 0 .967-.196 1.317-.545L39.455 28.83c.349-.35.545-.823.545-1.317V12.487c0-.494-.196-.967-.545-1.317L28.83.545A1.862 1.862 0 0027.513 0H12.487z"
       fill="url(#paint2_linear_6_79__Cffb1zrt)"
-      fill-opacity=".3"
+      fillOpacity=".3"
     ></path>
     <g filter="url(#filter1_d_6_79__Cffb1zrt)">
       <path
@@ -45,18 +45,18 @@ const Plus = () => (
       <path
         d="M20 14.11l5.869 5.478L28 17.578l-8-7.467-8 7.468 2.131 2.009 5.87-5.479z"
         fill="url(#paint4_linear_6_79__Cffb1zrt)"
-        fill-opacity=".2"
+        fillOpacity=".2"
       ></path>
       <path
         d="M20 14.11l5.869 5.478L28 17.578l-8-7.467-8 7.468 2.131 2.009 5.87-5.479z"
         fill="url(#paint5_linear_6_79__Cffb1zrt)"
-        fill-opacity=".3"
+        fillOpacity=".3"
       ></path>
       <path
         d="M20.16 13.938L20 13.79l-.16.15-5.708 5.328-1.79-1.688L20 10.431l7.658 7.148-1.79 1.688-5.708-5.329z"
         stroke="url(#paint6_linear_6_79__Cffb1zrt)"
-        stroke-opacity=".2"
-        stroke-width=".468"
+        strokeOpacity=".2"
+        strokeWidth=".468"
       ></path>
       <path
         d="M20 22.633l5.869 5.478L28 26.102l-8-7.467-8 7.467 2.131 2.01 5.87-5.48z"
@@ -65,18 +65,18 @@ const Plus = () => (
       <path
         d="M20 22.633l5.869 5.478L28 26.102l-8-7.467-8 7.467 2.131 2.01 5.87-5.48z"
         fill="url(#paint8_linear_6_79__Cffb1zrt)"
-        fill-opacity=".2"
+        fillOpacity=".2"
       ></path>
       <path
         d="M20 22.633l5.869 5.478L28 26.102l-8-7.467-8 7.467 2.131 2.01 5.87-5.48z"
         fill="url(#paint9_linear_6_79__Cffb1zrt)"
-        fill-opacity=".3"
+        fillOpacity=".3"
       ></path>
       <path
         d="M20.16 22.462l-.16-.15-.16.15-5.708 5.328-1.79-1.687L20 18.955l7.658 7.148-1.79 1.687-5.708-5.328z"
         stroke="url(#paint10_linear_6_79__Cffb1zrt)"
-        stroke-opacity=".2"
-        stroke-width=".468"
+        strokeOpacity=".2"
+        strokeWidth=".468"
       ></path>
     </g>
     <defs>
@@ -88,9 +88,9 @@ const Plus = () => (
         y2="41.389"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#732600"></stop>
-        <stop offset="1" stop-color="#260D00"></stop>
-        <stop offset="1" stop-color="#401500"></stop>
+        <stop stopColor="#732600"></stop>
+        <stop offset="1" stopColor="#260D00"></stop>
+        <stop offset="1" stopColor="#401500"></stop>
       </linearGradient>
       <linearGradient
         id="paint1_linear_6_79__Cffb1zrt"
@@ -100,8 +100,8 @@ const Plus = () => (
         y2="36.451"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD6E35"></stop>
-        <stop offset="1" stop-color="#FF5500"></stop>
+        <stop stopColor="#FD6E35"></stop>
+        <stop offset="1" stopColor="#FF5500"></stop>
       </linearGradient>
       <linearGradient
         id="paint2_linear_6_79__Cffb1zrt"
@@ -111,8 +111,8 @@ const Plus = () => (
         y2="19.876"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FF0000"></stop>
-        <stop offset="1" stop-color="#FF0000" stop-opacity="0"></stop>
+        <stop stopColor="#FF0000"></stop>
+        <stop offset="1" stopColor="#FF0000" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="paint3_linear_6_79__Cffb1zrt"
@@ -122,8 +122,8 @@ const Plus = () => (
         y2="14.849"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD6E35"></stop>
-        <stop offset="1" stop-color="#FF5500"></stop>
+        <stop stopColor="#FD6E35"></stop>
+        <stop offset="1" stopColor="#FF5500"></stop>
       </linearGradient>
       <linearGradient
         id="paint4_linear_6_79__Cffb1zrt"
@@ -133,8 +133,8 @@ const Plus = () => (
         y2="14.849"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="white"></stop>
-        <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+        <stop stopColor="white"></stop>
+        <stop offset="1" stopColor="white" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="paint5_linear_6_79__Cffb1zrt"
@@ -144,8 +144,8 @@ const Plus = () => (
         y2="11.457"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FF0000"></stop>
-        <stop offset="1" stop-color="#FF0000" stop-opacity="0"></stop>
+        <stop stopColor="#FF0000"></stop>
+        <stop offset="1" stopColor="#FF0000" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="paint6_linear_6_79__Cffb1zrt"
@@ -155,8 +155,8 @@ const Plus = () => (
         y2="22.727"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="white"></stop>
-        <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+        <stop stopColor="white"></stop>
+        <stop offset="1" stopColor="white" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="paint7_linear_6_79__Cffb1zrt"
@@ -166,8 +166,8 @@ const Plus = () => (
         y2="23.373"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD6E35"></stop>
-        <stop offset="1" stop-color="#FF5500"></stop>
+        <stop stopColor="#FD6E35"></stop>
+        <stop offset="1" stopColor="#FF5500"></stop>
       </linearGradient>
       <linearGradient
         id="paint8_linear_6_79__Cffb1zrt"
@@ -177,8 +177,8 @@ const Plus = () => (
         y2="23.373"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="white"></stop>
-        <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+        <stop stopColor="white"></stop>
+        <stop offset="1" stopColor="white" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="paint9_linear_6_79__Cffb1zrt"
@@ -188,8 +188,8 @@ const Plus = () => (
         y2="19.98"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FF0000"></stop>
-        <stop offset="1" stop-color="#FF0000" stop-opacity="0"></stop>
+        <stop stopColor="#FF0000"></stop>
+        <stop offset="1" stopColor="#FF0000" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="paint10_linear_6_79__Cffb1zrt"
@@ -199,8 +199,8 @@ const Plus = () => (
         y2="31.25"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="white"></stop>
-        <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+        <stop stopColor="white"></stop>
+        <stop offset="1" stopColor="white" stopOpacity="0"></stop>
       </linearGradient>
       <filter
         id="filter0_i_6_79__Cffb1zrt"
@@ -209,9 +209,9 @@ const Plus = () => (
         width="33.074"
         height="34.478"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
         <feBlend
           in="SourceGraphic"
           in2="BackgroundImageFix"
@@ -240,9 +240,9 @@ const Plus = () => (
         width="20.681"
         height="22.681"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
         <feColorMatrix
           in="SourceAlpha"
           values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
@@ -283,50 +283,50 @@ const Premium = () => (
     </g>
     <path
       fill="url(#c__hrzMuihG)"
-      fill-rule="evenodd"
+      fillRule="evenodd"
       d="M13 4l-9 9v14l9 9h14l9-9V13l-9-9H13zm-1-4l-1 1L1 11l-1 1v16l1 1 10 10 1 1h16l1-1 10-10 1-1V12l-1-1L29 1a2 2 0 00-1-1H12z"
-      clip-rule="evenodd"
+      clipRule="evenodd"
     ></path>
     <path
       fill="url(#d__hrzMuihG)"
-      fill-opacity=".3"
-      fill-rule="evenodd"
+      fillOpacity=".3"
+      fillRule="evenodd"
       d="M13 4l-9 9v14l9 9h14l9-9V13l-9-9H13zm-1-4l-1 1L1 11l-1 1v16l1 1 10 10 1 1h16l1-1 10-10 1-1V12l-1-1L29 1a2 2 0 00-1-1H12z"
-      clip-rule="evenodd"
+      clipRule="evenodd"
     ></path>
     <g filter="url(#e__hrzMuihG)">
       <path fill="url(#f__hrzMuihG)" d="M20 14l6 6 2-2-8-8-8 8 2 2 6-6z"></path>
       <path
         fill="url(#g__hrzMuihG)"
-        fill-opacity=".2"
+        fillOpacity=".2"
         d="M20 14l6 6 2-2-8-8-8 8 2 2 6-6z"
       ></path>
       <path
         fill="url(#h__hrzMuihG)"
-        fill-opacity=".3"
+        fillOpacity=".3"
         d="M20 14l6 6 2-2-8-8-8 8 2 2 6-6z"
       ></path>
       <path
         stroke="url(#i__hrzMuihG)"
-        stroke-opacity=".2"
-        stroke-width=".5"
+        strokeOpacity=".2"
+        strokeWidth=".5"
         d="M20 14l-6 5-2-1 8-8 8 8-2 1-6-5z"
       ></path>
       <path fill="url(#j__hrzMuihG)" d="M20 23l6 5 2-2-8-7-8 7 2 2 6-5z"></path>
       <path
         fill="url(#k__hrzMuihG)"
-        fill-opacity=".2"
+        fillOpacity=".2"
         d="M20 23l6 5 2-2-8-7-8 7 2 2 6-5z"
       ></path>
       <path
         fill="url(#l__hrzMuihG)"
-        fill-opacity=".3"
+        fillOpacity=".3"
         d="M20 23l6 5 2-2-8-7-8 7 2 2 6-5z"
       ></path>
       <path
         stroke="url(#m__hrzMuihG)"
-        stroke-opacity=".2"
-        stroke-width=".5"
+        strokeOpacity=".2"
+        strokeWidth=".5"
         d="M20 22l-6 6-2-2 8-7 8 7-2 2-6-6z"
       ></path>
     </g>
@@ -339,9 +339,9 @@ const Premium = () => (
         y2="41.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#732600"></stop>
-        <stop offset="1" stop-color="#260D00"></stop>
-        <stop offset="1" stop-color="#401500"></stop>
+        <stop stopColor="#732600"></stop>
+        <stop offset="1" stopColor="#260D00"></stop>
+        <stop offset="1" stopColor="#401500"></stop>
       </linearGradient>
       <linearGradient
         id="c__hrzMuihG"
@@ -351,8 +351,8 @@ const Premium = () => (
         y2="36.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD6E35"></stop>
-        <stop offset="1" stop-color="#F50"></stop>
+        <stop stopColor="#FD6E35"></stop>
+        <stop offset="1" stopColor="#F50"></stop>
       </linearGradient>
       <linearGradient
         id="d__hrzMuihG"
@@ -362,8 +362,8 @@ const Premium = () => (
         y2="19.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="red"></stop>
-        <stop offset="1" stop-color="red" stop-opacity="0"></stop>
+        <stop stopColor="red"></stop>
+        <stop offset="1" stopColor="red" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="f__hrzMuihG"
@@ -373,8 +373,8 @@ const Premium = () => (
         y2="14.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD6E35"></stop>
-        <stop offset="1" stop-color="#F50"></stop>
+        <stop stopColor="#FD6E35"></stop>
+        <stop offset="1" stopColor="#F50"></stop>
       </linearGradient>
       <linearGradient
         id="g__hrzMuihG"
@@ -384,8 +384,8 @@ const Premium = () => (
         y2="14.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff"></stop>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+        <stop stopColor="#fff"></stop>
+        <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="h__hrzMuihG"
@@ -395,8 +395,8 @@ const Premium = () => (
         y2="11.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="red"></stop>
-        <stop offset="1" stop-color="red" stop-opacity="0"></stop>
+        <stop stopColor="red"></stop>
+        <stop offset="1" stopColor="red" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="i__hrzMuihG"
@@ -406,8 +406,8 @@ const Premium = () => (
         y2="22.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff"></stop>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+        <stop stopColor="#fff"></stop>
+        <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="j__hrzMuihG"
@@ -417,8 +417,8 @@ const Premium = () => (
         y2="23.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD6E35"></stop>
-        <stop offset="1" stop-color="#F50"></stop>
+        <stop stopColor="#FD6E35"></stop>
+        <stop offset="1" stopColor="#F50"></stop>
       </linearGradient>
       <linearGradient
         id="k__hrzMuihG"
@@ -428,8 +428,8 @@ const Premium = () => (
         y2="23.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff"></stop>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+        <stop stopColor="#fff"></stop>
+        <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="l__hrzMuihG"
@@ -439,8 +439,8 @@ const Premium = () => (
         y2="20"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="red"></stop>
-        <stop offset="1" stop-color="red" stop-opacity="0"></stop>
+        <stop stopColor="red"></stop>
+        <stop offset="1" stopColor="red" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="m__hrzMuihG"
@@ -450,8 +450,8 @@ const Premium = () => (
         y2="31.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff"></stop>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+        <stop stopColor="#fff"></stop>
+        <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
       </linearGradient>
       <filter
         id="a__hrzMuihG"
@@ -459,10 +459,10 @@ const Premium = () => (
         height="34.5"
         x="4"
         y="3"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
         <feBlend
           in="SourceGraphic"
           in2="BackgroundImageFix"
@@ -490,10 +490,10 @@ const Premium = () => (
         height="22.7"
         x="10"
         y="8"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
         <feColorMatrix
           in="SourceAlpha"
           values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
@@ -521,7 +521,7 @@ const Esea = () => (
     viewBox="0 0 32 32"
     stroke="#167C3C"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
     <g
       id="SVGRepo_tracerCarrier"
@@ -538,12 +538,16 @@ const Esea = () => (
 
 export default function Pseudo() {
   const [dataJoueur, setDataJoueur] = useState(null);
+  const [dataJoueurDetail, setDataJoueurDetail] = useState(null);
+  const [dataMatchs, setDataMatchs] = useState(null);
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
   console.log(search);
 
   useEffect(() => {
     handleSearch();
+    handleSearchPlayer();
+    handleSearchMatchs();
   }, []);
 
   async function handleSearch() {
@@ -562,6 +566,44 @@ export default function Pseudo() {
       console.log(data.payload.memberships);
     } catch (error) {
       console.error("Error fetching player data:", error);
+    }
+  }
+
+  async function handleSearchPlayer() {
+    if (search.trim() === "") return;
+    try {
+      const response = await fetch(
+        `/api/joueurDetail?pseudo=${encodeURIComponent(search)}`
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setDataJoueurDetail(data);
+      console.log("ififeief", data);
+    } catch (error) {
+      console.error("Error fetching player data:", error);
+    }
+  }
+
+  async function handleSearchMatchs() {
+    if (search.trim() === "") return;
+
+    try {
+      const response = await fetch(
+        `/api/matchs?pseudo=${encodeURIComponent(search)}`
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setDataMatchs(data);
+      console.log("Matttchs",data);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des données des matchs :",
+        error
+      );
     }
   }
 
@@ -616,6 +658,15 @@ export default function Pseudo() {
     }
   }
 
+  function getCountryFlag(country: string) {
+    switch (country) {
+      case "ci":
+        return "https://www.worldometers.info/img/flags/iv-flag.gif";
+      default:
+        return `https://www.worldometers.info/img/flags/${country}-flag.gif`;
+    }
+  }
+
   return (
     <>
       <Nav />
@@ -638,6 +689,11 @@ export default function Pseudo() {
                 width={110}
               />
               <div className="flex flex-col gap-2">
+                <img
+                  src={getCountryFlag(dataJoueur.payload.country)}
+                  alt={`Pays ${dataJoueur.payload.country}`}
+                  width={40}
+                />
                 <h2 className="text-4xl font-medium text-white flex items-center">
                   {dataJoueur.payload.nickname}{" "}
                   <span className="ml-2 flex items-center gap-1">
@@ -645,16 +701,16 @@ export default function Pseudo() {
                   </span>
                 </h2>
                 <p className="font-bold flex items-center text-lg text-white items-center">
-                {dataJoueur.payload.games.cs2.skill_level && (
-                      <img
-                        src={getSkillLevelImage(
-                          dataJoueur.payload.games.cs2.skill_level
-                        )}
-                        alt={`Skill level ${dataJoueur.payload.games.cs2.skill_level}`}
-                        className="rounded-lg"
-                        width={28}
-                      />
-                    )}
+                  {dataJoueur.payload.games.cs2.skill_level && (
+                    <img
+                      src={getSkillLevelImage(
+                        dataJoueur.payload.games.cs2.skill_level
+                      )}
+                      alt={`Niveau ${dataJoueur.payload.games.cs2.skill_level}`}
+                      className="rounded-lg"
+                      width={28}
+                    />
+                  )}
                   <span className="font-medium">
                     {dataJoueur.payload.games.cs2.faceit_elo}
                   </span>
@@ -664,63 +720,85 @@ export default function Pseudo() {
           </div>
 
           <div className="flex justify-center">
-            <div className="flex flex-col mx-auto justify-center gap-4 p-4">
-              <div className="bg-black p-4 rounded-lg">
-                <h3 className="text-xl font-bold flex gap-2 text-white">
-                  <span className="border-l-2"></span>Counter-Strike 2
-                </h3>
-                <div className="flex items-center justify-between mt-4">
-                  <div className="flex flex-col items-center">
-                  {dataJoueur.payload.games.cs2.skill_level && (
-                      <img
-                        src={getSkillLevelImage(
-                          dataJoueur.payload.games.cs2.skill_level
-                        )}
-                        alt={`Skill level ${dataJoueur.payload.games.cs2.skill_level}`}
-                        className="rounded-lg"
-                        width={40}
-                      />
-                    )}
-                    <p className="text-white">
-                      {dataJoueur.payload.games.cs2.faceit_elo}
-                    </p>
+            <div className="flex justify-center gap-8">
+              <div className="flex flex-col mx-auto justify-center gap-4 p-4">
+                <div className="bg-black p-4 rounded-lg w-full">
+                  <h3 className="text-xl font-bold flex gap-2 text-white">
+                    <span className="border-l-2 pl-2">Counter-Strike 2</span>
+                  </h3>
+                  <div className="flex items-center justify-between mt-4">
+                    <div className="flex flex-col items-center">
+                      {dataJoueur.payload.games.cs2.skill_level && (
+                        <img
+                          src={getSkillLevelImage(
+                            dataJoueur.payload.games.cs2.skill_level
+                          )}
+                          alt={`Skill level ${dataJoueur.payload.games.cs2.skill_level}`}
+                          className="rounded-lg"
+                          width={40}
+                        />
+                      )}
+                      <p className="text-white">
+                        {dataJoueur.payload.games.cs2.faceit_elo}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-white">
+                        {dataJoueurDetail?.stats.lifetime?.k6}% Win Rate
+                      </p>
+                      <p className="text-white">
+                        {dataJoueurDetail?.stats.lifetime?.m1} matchs
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white">NaN% Win Rate</p>
+                </div>
+
+                <div className="bg-black p-4 rounded-lg w-full">
+                  <h3 className="text-xl font-bold flex gap-2 text-white">
+                    <span className="border-l-2 pl-2">
+                      Counter-Strike: Global Offensive
+                    </span>
+                  </h3>
+                  <div className="flex items-center justify-between mt-4">
+                    <div className="flex flex-col items-center">
+                      {dataJoueur.payload.games.csgo?.skill_level && (
+                        <img
+                          src={getSkillLevelImage(
+                            dataJoueur.payload.games.csgo?.skill_level
+                          )}
+                          alt={`Skill level ${dataJoueur.payload.games.csgo.skill_level}`}
+                          className="rounded-lg"
+                          width={40}
+                        />
+                      )}
+                      <p className="text-white">
+                        {dataJoueur.payload.games.csgo?.faceit_elo || ""}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-white">NaN% Win Rate</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="bg-black p-4 rounded-lg">
-                <h3 className="text-xl font-bold flex gap-2 text-white">
-                  <span className="border-l-2"></span>Counter-Strike: Global
-                  Offensive
-                </h3>
-                <div className="flex items-center justify-between mt-4">
-                  <div className="flex flex-col items-center">
-                  {dataJoueur.payload.games.csgo?.skill_level  && (
-                      <img
-                        src={getSkillLevelImage(
-                          dataJoueur.payload.games.csgo?.skill_level
-                        ) || "https://cdn-frontend.faceit-cdn.net/web/static/media/assets_images_skill-icons_skill_level_0_svg.svg"}
-                        alt={`Skill level ${dataJoueur.payload.games.csgo.skill_level}`}
-                        className="rounded-lg"
-                        width={40}
-                      />
-                    )}
-                    <p className="text-white">
-                      {dataJoueur.payload.games.csgo?.faceit_elo || ""}
-                    </p>
-                  </div>
+              <div className="mt-4">
+                <div className="bg-black text-white p-4 rounded-lg">
+                  <h3 className="text-xl font-bold flex gap-2 text-white">
+                    <span className="border-l-2 pl-2">
+                      Historique des 20 derniers matchs
+                    </span>
+                  </h3>
                   <div>
-                    <p className="text-white">NaN% Win Rate</p>
-                  </div>
+                      <p className="text-xs">{dataMatchs?.wins} victoires</p>
+                      <p className="text-xs">{dataMatchs?.losses} défaites</p>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
         </>
       ) : (
-        <p>Loading...</p>
+        <></>
       )}
     </>
   );
