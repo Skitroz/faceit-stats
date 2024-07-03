@@ -676,7 +676,6 @@ export default function Pseudo() {
       return null;
     });
   }
-
   interface DataJoueur {
     payload: {
       avatar: string;
@@ -685,6 +684,7 @@ export default function Pseudo() {
       games: {
         cs2: {
           faceit_elo: number;
+          skill_level?: number;
         };
       };
       memberships: string[];
