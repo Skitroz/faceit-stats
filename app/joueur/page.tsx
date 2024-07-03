@@ -569,7 +569,7 @@ const Esea = () => (
 export default function Pseudo() {
   const [dataJoueur, setDataJoueur] = useState(null);
   const [dataJoueurDetail, setDataJoueurDetail] = useState<PlayerDetail | null>(null);
-  const [dataMatchs, setDataMatchs] = useState(null);
+  const [dataMatchs, setDataMatchs] = useState<{ wins: number } | null>(null);
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
   const [mapStats, setMapStats] = useState<MapStats | null>(null);
@@ -644,7 +644,7 @@ export default function Pseudo() {
     }
   }
 
-  const winRate = dataMatchs ? (dataMatchs.wins / 20) * 100 : 0;
+  const winRate = dataMatchs && 'wins' in dataMatchs ? (dataMatchs.wins / 20) * 100 : 0;
   const lossRate = 100 - winRate;
 
   const data = {
