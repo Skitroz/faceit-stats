@@ -35,6 +35,7 @@ interface PlayerDetail {
       k6?: number;
       m1?: number;
     };
+  }
 }
 
 interface MapStats {
