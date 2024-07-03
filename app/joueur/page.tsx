@@ -869,7 +869,7 @@ export default function Pseudo() {
                         {topMaps.map(([map, stats]) => (
                           <tr key={map} className="border-b border-white">
                             <td className="px-4 py-2 text-white flex items-center">
-                              <img src={mapImages[map]} alt={map} className="rounded mr-2" />
+                              <img src={mapImages[map as MapName]} alt={map} className="rounded mr-2" />
                               {map}
                             </td>
                             <td className="px-4 py-2 text-white">{stats.matches}</td>
@@ -903,7 +903,7 @@ export default function Pseudo() {
                             {Object.entries(dataMatchs.mapOccurrences).map(([map, count]) => (
                               <li key={map} className="text-white flex flex-col items-center gap-2">
                                 <span>{count}</span>
-                                <img src={mapImages[map]} alt={map} className="rounded-lg" />
+                                <img src={mapImages[map as MapName]} alt={map} className="rounded-lg" />
                               </li>
                             ))}
                           </ul>
