@@ -27,29 +27,23 @@ const mapImages: Record<MapName, string> = {
 
 type MapName = 'de_dust2' | 'de_inferno' | 'de_vertigo' | 'de_ancient' | 'de_mirage' | 'de_nuke' | 'de_anubis' | 'de_overpass';
 
-interface PlayerDetail {
-  mapStats: {
-    [map: string]: {
-      winRate: number;
-    };
-  };
-  stats?: {
-    lifetime?: {
-      k6?: number;
-      m1?: number;
-    };
-  }
-}
-
 interface MapStats {
   matches: number;
   wins: number;
   winRate: number;
 }
 
-interface MapStatsRecord {
-  [map: string]: MapStats;
+interface PlayerDetail {
+  mapStats: { [key: string]: MapStats };
+  stats?: {
+    lifetime?: {
+      k6?: number;
+      m1?: number;
+    };
+  };
 }
+
+type TopMaps = [string, MapStats][];
 
 const Plus = () => (
   <svg
@@ -579,15 +573,20 @@ const Esea = () => (
   </svg>
 );
 
+
+interface MapStatsRecord {
+  [map: string]: MapStats;
+}
+
 export default function Pseudo() {
   const [dataJoueur, setDataJoueur] = useState<DataJoueur | null>(null);
   const [dataJoueurDetail, setDataJoueurDetail] = useState<PlayerDetail | null>(null);
   const [dataMatchs, setDataMatchs] = useState<{
-    mapOccurrences(mapOccurrences: any): unknown; wins: number 
-} | null>(null);
+    mapOccurrences(mapOccurrences: any): unknown; wins: number
+  } | null>(null);
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
-  const [mapStats, setMapStats] = useState<MapStats | null>(null);
+  const [mapStats, setMapStats] = useState<{ [key: string]: MapStats } | null>(null);
   const [topMaps, setTopMaps] = useState<[string, unknown][]>([]);
   console.log(search);
 
@@ -616,7 +615,7 @@ export default function Pseudo() {
     }
   }
 
-  async function handleSearchPlayer() {
+  const handleSearchPlayer = async () => {
     if (search.trim() === "") return;
     try {
       const response = await fetch(
@@ -627,22 +626,16 @@ export default function Pseudo() {
       }
       const data: PlayerDetail = await response.json();
       const sortedMaps = Object.entries(data.mapStats).sort(([, a], [, b]) => b.winRate - a.winRate);
-      const topMaps = sortedMaps.slice(0, 10);
-      const updatedMapStats: MapStats = {
-        matches: 0,
-        wins: 0,
-        winRate: 0,
-        ...data.mapStats
-      };
-      setMapStats(updatedMapStats);
+      const topMaps = sortedMaps.slice(0, 10) as TopMaps;
       setTopMaps(topMaps);
-      console.log("Top Maps", topMaps);
+      setMapStats(data.mapStats);
       setDataJoueurDetail(data);
-      console.log("ififeief", data);
+      console.log("Top Maps", topMaps);
+      console.log("Player Detail", data);
     } catch (error) {
       console.error("Error fetching player data:", error);
     }
-  }
+  };
 
   async function handleSearchMatchs() {
     if (search.trim() === "") return;
@@ -884,8 +877,8 @@ export default function Pseudo() {
                               <img src={mapImages[map as MapName]} alt={map} className="rounded mr-2" />
                               {map}
                             </td>
-                            <td className="px-4 py-2 text-white">{stats?.matches}</td>
-                            <td className="px-4 py-2 text-white">{stats?.wins} %</td>
+                            <td className="px-4 py-2 text-white">{stats.matches}</td>
+                            <td className="px-4 py-2 text-white">{stats.win} %</td>
                           </tr>
                         ))}
                       </tbody>
