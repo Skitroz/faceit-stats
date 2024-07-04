@@ -1,11 +1,11 @@
 "use client";
 
-import React, { ReactNode, useEffect, useState } from "react";
-import { Skeleton } from "@/components/ui/skeleton"
+import React, { ReactNode, useEffect, useState, Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useSearchParams } from "next/navigation";
 import Nav from "@/components/nav";
 import User from "../../public/user.png";
-import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 Chart.register(ArcElement, Tooltip, Legend);
@@ -13,8 +13,7 @@ Chart.register(ArcElement, Tooltip, Legend);
 const defaultCoverImage =
   "https://cdn-frontend.faceit-cdn.net/web/static/media/assets_images_profile_header.jpg";
 
-
-  const mapImages: { [key: string]: string } = {
+const mapImages: { [key: string]: string } = {
   de_dust2: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/adf58ac6-b0f3-40e9-87ef-0af23fc60918_1695819116078.jpeg',
   de_inferno: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/a2cb95be-1a3f-49f3-a5fa-a02503d02086_1695819214782.jpeg',
   de_vertigo: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/57652f05-ce5a-4c89-8211-d9eb79a399f1_1695819175416.jpeg',
@@ -44,6 +43,10 @@ interface PlayerDetail {
 }
 
 type TopMaps = [string, MapStats][];
+
+interface MapStatsRecord {
+  [map: string]: MapStats;
+}
 
 const Plus = () => (
   <svg
@@ -573,19 +576,25 @@ const Esea = () => (
   </svg>
 );
 
+export default function JoueurPage() {
+  const searchParams = useSearchParams();
+  const search = searchParams?.get("pseudo") ?? "";
 
-interface MapStatsRecord {
-  [map: string]: MapStats;
-}
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MyComponent search={search} />
+    </Suspense>
+  );
+};
 
-export default function Pseudo() {
+const MyComponent = ({ search }: { search: string }) => {
   const [dataJoueur, setDataJoueur] = useState<DataJoueur | null>(null);
   const [dataJoueurDetail, setDataJoueurDetail] = useState<PlayerDetail | null>(null);
   const [dataMatchs, setDataMatchs] = useState<{
     mapOccurrences(mapOccurrences: any): unknown; wins: number
   } | null>(null);
   const searchParams = useSearchParams();
-  const search = searchParams?.get("pseudo") ?? "";
+  const currentSearch = searchParams?.get("pseudo") ?? "";
   const [mapStats, setMapStats] = useState<{ [key: string]: MapStats } | null>(null);
   const [topMaps, setTopMaps] = useState<TopMaps>([]);
   console.log(search);
@@ -594,7 +603,7 @@ export default function Pseudo() {
     handleSearch();
     handleSearchPlayer();
     handleSearchMatchs();
-  }, []);
+  }, [currentSearch]);
 
   async function handleSearch() {
     if (search.trim() === "") return;
