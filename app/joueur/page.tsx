@@ -56,7 +56,7 @@ const JoueurPage = () => {
   );
 };
 
-const JoueurContent = () => {
+export default function JoueurContent() {
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
 
