@@ -48,6 +48,25 @@ interface MapStatsRecord {
   [map: string]: MapStats;
 }
 
+const JoueurPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <JoueurContent />
+    </Suspense>
+  );
+};
+
+const JoueurContent = () => {
+  const searchParams = useSearchParams();
+  const search = searchParams?.get("pseudo") ?? "";
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MyComponent search={search} />
+    </Suspense>
+  );
+};
+
 const Plus = () => (
   <svg
     viewBox="0 0 40 40"
@@ -575,17 +594,6 @@ const Esea = () => (
     </g>
   </svg>
 );
-
-export default function JoueurPage() {
-  const searchParams = useSearchParams();
-  const search = searchParams?.get("pseudo") ?? "";
-
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <MyComponent search={search} />
-    </Suspense>
-  );
-};
 
 const MyComponent = ({ search }: { search: string }) => {
   const [dataJoueur, setDataJoueur] = useState<DataJoueur | null>(null);
