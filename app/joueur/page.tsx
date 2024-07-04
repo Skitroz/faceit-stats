@@ -14,7 +14,7 @@ const defaultCoverImage =
   "https://cdn-frontend.faceit-cdn.net/web/static/media/assets_images_profile_header.jpg";
 
 
-const mapImages: Record<MapName, string> = {
+  const mapImages: { [key: string]: string } = {
   de_dust2: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/adf58ac6-b0f3-40e9-87ef-0af23fc60918_1695819116078.jpeg',
   de_inferno: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/a2cb95be-1a3f-49f3-a5fa-a02503d02086_1695819214782.jpeg',
   de_vertigo: 'https://assets.faceit-cdn.net/third_party/games/ce652bd4-0abb-4c90-9936-1133965ca38b/assets/votables/57652f05-ce5a-4c89-8211-d9eb79a399f1_1695819175416.jpeg',
@@ -29,7 +29,7 @@ type MapName = 'de_dust2' | 'de_inferno' | 'de_vertigo' | 'de_ancient' | 'de_mir
 
 interface MapStats {
   matches: number;
-  wins: number;
+  win: number;
   winRate: number;
 }
 
@@ -587,7 +587,7 @@ export default function Pseudo() {
   const searchParams = useSearchParams();
   const search = searchParams?.get("pseudo") ?? "";
   const [mapStats, setMapStats] = useState<{ [key: string]: MapStats } | null>(null);
-  const [topMaps, setTopMaps] = useState<[string, unknown][]>([]);
+  const [topMaps, setTopMaps] = useState<TopMaps>([]);
   console.log(search);
 
   useEffect(() => {
@@ -628,7 +628,6 @@ export default function Pseudo() {
       const sortedMaps = Object.entries(data.mapStats).sort(([, a], [, b]) => b.winRate - a.winRate);
       const topMaps = sortedMaps.slice(0, 10) as TopMaps;
       setTopMaps(topMaps);
-      setMapStats(data.mapStats);
       setDataJoueurDetail(data);
       console.log("Top Maps", topMaps);
       console.log("Player Detail", data);
